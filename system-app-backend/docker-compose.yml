@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: postgres:15.2
+    container_name: datoCompleto
+    restart: always
+
+    environment:
+      - POSTGRES_DB=systemHotel
+      - POSTGRES_USER=brayan
+      - POSTGRES_PASSWORD=1234
+    ports:
+      - "5432:5432"
+
+
