@@ -1,10 +1,7 @@
 package com.company.systemappbackend.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -12,6 +9,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Builder
 @Entity
 public class Reservation {
 
@@ -29,7 +27,7 @@ public class Reservation {
     @Column(nullable = false)
     private LocalDate checkOutDate;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne()
     @JoinColumn(name = "id_room", nullable = false, foreignKey = @ForeignKey(name = "fk_reservation_room"))
     private Room room;
 
